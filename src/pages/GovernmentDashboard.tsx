@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import VendorMap from '@/components/VendorMap';
-import GoogleMapComponent from '@/components/GoogleMapComponent';
+import LeafletMap from '@/components/LeafletMap';
 
 const GovernmentDashboard = () => {
   const [activeView, setActiveView] = useState('overview');
@@ -182,7 +182,7 @@ const GovernmentDashboard = () => {
           </TabsContent>
 
           <TabsContent value="map" className="space-y-6">
-            <GoogleMapComponent vendors={mockVendors} userRole="government" />
+            <LeafletMap vendors={mockVendors} userRole="government" />
           </TabsContent>
 
           <TabsContent value="revenue" className="space-y-6">
