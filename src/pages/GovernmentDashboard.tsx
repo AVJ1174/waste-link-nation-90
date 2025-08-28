@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BarChart3, TrendingUp, Users, MapPin, DollarSign, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,6 +9,7 @@ import VendorMap from '@/components/VendorMap';
 import LeafletMap from '@/components/LeafletMap';
 
 const GovernmentDashboard = () => {
+  const navigate = useNavigate();
   const [activeView, setActiveView] = useState('overview');
 
   const mockVendors = [
@@ -63,9 +65,15 @@ const GovernmentDashboard = () => {
       <header className="bg-card border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">Government Dashboard</h1>
-              <p className="text-muted-foreground">Delhi Municipal Corporation - Waste Management Analytics</p>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}>
+                <img src="/src/assets/recyclink-logo.png" alt="Recyclink Logo" className="w-6 h-6" />
+                <span className="font-semibold text-foreground">Recyclink</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">Government Dashboard</h1>
+                <p className="text-muted-foreground">Delhi Municipal Corporation - Waste Management Analytics</p>
+              </div>
             </div>
             <Badge variant="outline" className="text-lg px-3 py-1">
               Admin Access
