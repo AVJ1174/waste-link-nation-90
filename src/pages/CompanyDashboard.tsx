@@ -171,12 +171,17 @@ const CompanyDashboard = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div className="space-y-2">
                     <Label>Waste Type</Label>
-                    <Select value={filters.wasteType} onValueChange={(value) => setFilters(prev => ({ ...prev, wasteType: value }))}>
+                    <Select
+                      value={filters.wasteType || "all"}
+                      onValueChange={(value) =>
+                        setFilters(prev => ({ ...prev, wasteType: value === "all" ? "" : value }))
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="All types" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All types</SelectItem>
+                        <SelectItem value="all">All types</SelectItem>
                         <SelectItem value="Plastic">Plastic</SelectItem>
                         <SelectItem value="Paper">Paper</SelectItem>
                         <SelectItem value="Metal">Metal</SelectItem>
