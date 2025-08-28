@@ -22,8 +22,10 @@ const Index = () => {
       <header className="bg-card/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}>
-              <img src="/src/assets/recyclink-logo.png" alt="Recyclink Logo" className="w-8 h-8" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-success to-success/70 rounded-lg flex items-center justify-center">
+                <Recycle className="h-5 w-5 text-background" />
+              </div>
               <h1 className="text-xl font-bold text-foreground">Recyclink</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -297,8 +299,10 @@ const Index = () => {
       <footer className="bg-card border-t border-border py-8 px-4">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-2 mb-4 md:mb-0 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}>
-              <img src="/src/assets/recyclink-logo.png" alt="Recyclink Logo" className="w-6 h-6" />
+            <div className="flex items-center gap-2 mb-4 md:mb-0">
+              <div className="w-6 h-6 bg-gradient-to-br from-success to-success/70 rounded flex items-center justify-center">
+                <Recycle className="h-4 w-4 text-background" />
+              </div>
               <span className="font-semibold">Recyclink</span>
             </div>
             <div className="flex gap-6 text-sm text-muted-foreground">
