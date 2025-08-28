@@ -9,8 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
-import VendorMap from '@/components/VendorMap';
-import GoogleMapComponent from '@/components/GoogleMapComponent';
+import LeafletMap from '@/components/LeafletMap';
 
 const KabadiwalaPage = () => {
   const [tasks, setTasks] = useState([
@@ -130,14 +129,11 @@ const KabadiwalaPage = () => {
           </TabsList>
 
           <TabsContent value="map" className="space-y-4">
-            <GoogleMapComponent 
+            <LeafletMap 
               vendors={tasks} 
               userRole="kabadiwala" 
               onAcceptTask={acceptTask}
             />
-            <div className="text-xs text-muted-foreground text-center p-2 bg-muted/50 rounded">
-              💡 Real Google Maps integration! Enter your API key to see interactive maps with vendor locations.
-            </div>
           </TabsContent>
 
           <TabsContent value="tasks" className="space-y-4">
