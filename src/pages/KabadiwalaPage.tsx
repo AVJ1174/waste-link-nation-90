@@ -9,7 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
-import LeafletMap from '@/components/LeafletMap';
+import CitizenLeafletMap from '@/components/CitizenLeafletMap';
+import { mockVendors, mockCitizenReports } from '@/data/demoData';
 
 const KabadiwalaPage = () => {
   const [tasks, setTasks] = useState([
@@ -74,11 +75,11 @@ const KabadiwalaPage = () => {
     notes: ''
   });
 
-  const acceptTask = (taskId: string) => {
-    console.log('Accepting task:', taskId);
+  const acceptTask = (id: string, type: 'vendor' | 'citizen' = 'vendor') => {
+    console.log('Accepting task:', id, 'of type:', type);
     // Update task status logic
     setTasks(prev => prev.map(task => 
-      task.id === taskId ? { ...task, status: 'assigned' as const } : task
+      task.id === id ? { ...task, status: 'assigned' as const } : task
     ));
   };
 
@@ -129,9 +130,10 @@ const KabadiwalaPage = () => {
           </TabsList>
 
           <TabsContent value="map" className="space-y-4">
-            <LeafletMap 
-              vendors={tasks} 
-              userRole="kabadiwala" 
+            <CitizenLeafletMap 
+              vendors={mockVendors}
+              citizenReports={mockCitizenReports} 
+              userRole="kabadiwala"
               onAcceptTask={acceptTask}
             />
           </TabsContent>

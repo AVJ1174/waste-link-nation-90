@@ -13,6 +13,10 @@ import GovernmentDashboard from "./pages/GovernmentDashboard";
 import SettlementDashboard from "./pages/SettlementDashboard";
 import AuthPage from "./pages/AuthPage";
 import AdminRegister from "./pages/AdminRegister";
+import CitizenDashboard from "./pages/CitizenDashboard";
+import CitizenReportWaste from "./pages/CitizenReportWaste";
+import CitizenRewards from "./pages/CitizenRewards";
+import CitizenMap from "./pages/CitizenMap";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +36,10 @@ const App = () => (
           <Route path="/settlement" element={<SettlementDashboard />} />
           <Route path="/admin-register" element={<AdminRegister />} />
           <Route path="/auth" element={<AuthPage />} />
+          <Route path="/citizen" element={<CitizenDashboard />} />
+          <Route path="/citizen/report" element={<CitizenReportWaste />} />
+          <Route path="/citizen/rewards" element={<CitizenRewards />} />
+          <Route path="/citizen/map" element={<CitizenMap />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

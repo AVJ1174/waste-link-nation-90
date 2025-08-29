@@ -1,72 +1,32 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BarChart3, TrendingUp, Users, MapPin, DollarSign, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import VendorMap from '@/components/VendorMap';
-import LeafletMap from '@/components/LeafletMap';
+import CitizenLeafletMap from '@/components/CitizenLeafletMap';
+import { mockVendors, mockCitizenReports } from '@/data/demoData';
+import recycLinkLogo from '@/assets/recyclink-logo.png';
 
 const GovernmentDashboard = () => {
   const [activeView, setActiveView] = useState('overview');
 
-  const mockVendors = [
-    { 
-      id: 'V001', 
-      location: 'Connaught Place', 
-      coordinates: { lat: 28.6304, lng: 77.2177 },
-      wasteType: 'Plastic', 
-      quantity: '5kg', 
-      status: 'available' as const,
-      submittedAt: '2 hours ago'
-    },
-    { 
-      id: 'V002', 
-      location: 'Karol Bagh', 
-      coordinates: { lat: 28.6507, lng: 77.1900 },
-      wasteType: 'Paper', 
-      quantity: '8kg', 
-      status: 'collected' as const,
-      submittedAt: '1 hour ago'
-    },
-    { 
-      id: 'V003', 
-      location: 'Lajpat Nagar', 
-      coordinates: { lat: 28.5656, lng: 77.2430 },
-      wasteType: 'Metal', 
-      quantity: '3kg', 
-      status: 'assigned' as const,
-      submittedAt: '30 mins ago'
-    },
-    { 
-      id: 'V004', 
-      location: 'Khan Market', 
-      coordinates: { lat: 28.5984, lng: 77.2319 },
-      wasteType: 'E-waste', 
-      quantity: '2kg', 
-      status: 'available' as const,
-      submittedAt: '45 mins ago'
-    },
-    { 
-      id: 'V005', 
-      location: 'Saket', 
-      coordinates: { lat: 28.5244, lng: 77.2066 },
-      wasteType: 'Glass', 
-      quantity: '4kg', 
-      status: 'available' as const,
-      submittedAt: '3 hours ago'
-    },
-  ];
+  // Using demo data from central location
 
   return (
     <div className="min-h-screen bg-gradient-main">
       <header className="bg-card border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">Government Dashboard</h1>
-              <p className="text-muted-foreground">Delhi Municipal Corporation - Waste Management Analytics</p>
-            </div>
+            <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+              <img src={recycLinkLogo} alt="RecycLink Logo" className="h-8 w-8" />
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">RecycLink</h1>
+                <p className="text-muted-foreground">Government Dashboard - Delhi Municipal Corporation</p>
+              </div>
+            </Link>
             <Badge variant="outline" className="text-lg px-3 py-1">
               Admin Access
             </Badge>
@@ -182,7 +142,11 @@ const GovernmentDashboard = () => {
           </TabsContent>
 
           <TabsContent value="map" className="space-y-6">
-            <LeafletMap vendors={mockVendors} userRole="government" />
+            <CitizenLeafletMap 
+              vendors={mockVendors} 
+              citizenReports={mockCitizenReports}
+              userRole="government" 
+            />
           </TabsContent>
 
           <TabsContent value="revenue" className="space-y-6">
