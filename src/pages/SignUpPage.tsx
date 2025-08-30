@@ -41,7 +41,7 @@ const SignUpPage = () => {
       id: 'recyclers',
       name: 'Recyclers',
       icon: Recycle,
-      description: 'Manage recycling operations and EPR compliance',
+      description: 'Purchase sorted waste from hubs and recycle it into reusable resources.',
       route: '/company'
     }
   ];
