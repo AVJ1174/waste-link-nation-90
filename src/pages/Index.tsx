@@ -157,13 +157,13 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Company */}
+            {/* Recyclers */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer group" onClick={() => navigateToRole('company')}>
               <CardHeader>
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                   <Building className="h-6 w-6 text-accent-foreground" />
                 </div>
-                <CardTitle>Recycling Company</CardTitle>
+                <CardTitle>Recyclers</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
@@ -269,7 +269,7 @@ const Index = () => {
               <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-secondary-foreground">4</span>
               </div>
-              <h3 className="font-semibold mb-2">Company Purchases</h3>
+              <h3 className="font-semibold mb-2">Recycler Purchases</h3>
               <p className="text-sm text-muted-foreground">Recyclers buy with automated settlements</p>
             </div>
           </div>

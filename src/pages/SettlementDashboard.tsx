@@ -55,7 +55,7 @@ const SettlementDashboard = () => {
       transactionId: 'TXN002',
       type: 'quality',
       description: 'Batch quality not as described',
-      reportedBy: 'Company',
+      reportedBy: 'Recyclers',
       status: 'open',
       amount: 900,
       createdAt: '2024-01-14'

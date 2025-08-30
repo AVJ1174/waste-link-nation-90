@@ -19,8 +19,9 @@ const AuthPage = () => {
     'vendor': '9876543210',
     'kabadiwala': '9876543220', 
     'hub': '9876543230',
-    'company': '9876543240',
+    'recyclers': '9876543240',
     'government': '9876543250',
+    'citizen': '9876543260',
     'admin': '9999999999'
   };
 
@@ -49,10 +50,12 @@ const AuthPage = () => {
       navigate('/kabadiwala');
     } else if (phone === demoCredentials.hub) {
       navigate('/hub');
-    } else if (phone === demoCredentials.company) {
+    } else if (phone === demoCredentials.recyclers) {
       navigate('/company');
     } else if (phone === demoCredentials.government) {
       navigate('/government');
+    } else if (phone === demoCredentials.citizen) {
+      navigate('/citizen');
     } else if (phone === demoCredentials.admin) {
       navigate('/settlement');
     } else {
@@ -175,6 +178,19 @@ const AuthPage = () => {
                 </Button>
               </>
             )}
+            
+            <div className="mt-4 text-center">
+              <p className="text-sm text-muted-foreground">
+                New user?{' '}
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto font-medium"
+                  onClick={() => navigate('/signup')}
+                >
+                  Sign up here
+                </Button>
+              </p>
+            </div>
           </CardContent>
         </Card>
 

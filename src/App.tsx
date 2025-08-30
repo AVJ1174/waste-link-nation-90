@@ -12,6 +12,7 @@ import CompanyDashboard from "./pages/CompanyDashboard";
 import GovernmentDashboard from "./pages/GovernmentDashboard";
 import SettlementDashboard from "./pages/SettlementDashboard";
 import AuthPage from "./pages/AuthPage";
+import SignUpPage from "./pages/SignUpPage";
 import AdminRegister from "./pages/AdminRegister";
 import CitizenDashboard from "./pages/CitizenDashboard";
 import CitizenReportWaste from "./pages/CitizenReportWaste";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/settlement" element={<SettlementDashboard />} />
           <Route path="/admin-register" element={<AdminRegister />} />
           <Route path="/auth" element={<AuthPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="/citizen" element={<CitizenDashboard />} />
           <Route path="/citizen/report" element={<CitizenReportWaste />} />
           <Route path="/citizen/rewards" element={<CitizenRewards />} />

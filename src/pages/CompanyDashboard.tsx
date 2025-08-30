@@ -90,7 +90,7 @@ const CompanyDashboard = () => {
     minQuantity: ''
   });
 
-  const [deliveryOption, setDeliveryOption] = useState('company-pickup');
+  const [deliveryOption, setDeliveryOption] = useState('recycler-pickup');
   const [paymentMethod, setPaymentMethod] = useState('escrow');
 
   const purchaseBatch = () => {
@@ -140,7 +140,7 @@ const CompanyDashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-foreground">Company Dashboard</h1>
+              <h1 className="text-2xl font-bold text-foreground">Recyclers Dashboard</h1>
               <p className="text-muted-foreground">GreenTech Recyclers - Waste Procurement</p>
             </div>
             <Badge variant="outline" className="text-lg px-3 py-1">
@@ -339,7 +339,7 @@ const CompanyDashboard = () => {
                                       <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                      <SelectItem value="company-pickup">Company Pickup (Free)</SelectItem>
+                                      <SelectItem value="recycler-pickup">Recycler Pickup (Free)</SelectItem>
                                       <SelectItem value="hub-delivery">Hub Coordinated Delivery (+₹200)</SelectItem>
                                       <SelectItem value="shared-logistics">Shared Logistics (+₹150)</SelectItem>
                                     </SelectContent>
