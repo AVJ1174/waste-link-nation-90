@@ -22,7 +22,7 @@ const Index = () => {
       <header className="bg-card/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}>
               <div className="w-8 h-8 bg-gradient-to-br from-success to-success/70 rounded-lg flex items-center justify-center">
                 <Recycle className="h-5 w-5 text-background" />
               </div>
@@ -57,7 +57,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" onClick={() => navigateToRole('vendor')} className="gap-2">
               <Users className="h-5 w-5" />
-              I'm a Street Vendor
+              I'm a Vendor
             </Button>
             <Button size="lg" variant="outline" onClick={() => navigateToRole('kabadiwala')} className="gap-2">
               <Truck className="h-5 w-5" />
@@ -92,18 +92,18 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Choose Your Role</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {/* Street Vendor */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer group" onClick={() => navigateToRole('vendor')}>
               <CardHeader>
                 <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mb-4">
                   <Users className="h-6 w-6 text-success" />
                 </div>
-                <CardTitle>Street Vendor</CardTitle>
+                <CardTitle>Vendor</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Submit your segregated waste for collection and earn rewards for contributing to recycling.
+                  Submit segregated waste for collection and earn rewards for contributing to recycling.
                 </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
@@ -185,6 +185,38 @@ const Index = () => {
                 </ul>
                 <div className="mt-4 text-right">
                   <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent-foreground transition-colors" />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Citizen */}
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer group" onClick={() => navigate('/citizen')}>
+              <CardHeader>
+                <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-blue-500" />
+                </div>
+                <CardTitle>Citizen</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Report waste spots in your area and earn points for contributing to a cleaner environment.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-success" />
+                    Report waste spots easily
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-success" />
+                    Earn reward points
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-success" />
+                    Win exciting giveaways
+                  </li>
+                </ul>
+                <div className="mt-4 text-right">
+                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-blue-500 transition-colors" />
                 </div>
               </CardContent>
             </Card>
