@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import CitizenLeafletMap from '@/components/CitizenLeafletMap';
-import { mockVendors, mockCitizenReports } from '@/data/demoData';
+import { mockVendors, mockCitizenReports, mockMissedCalls } from '@/data/demoData';
 import recycLinkLogo from '@/assets/recyclink-logo.png';
 
 const CitizenMap = () => {
@@ -33,6 +33,7 @@ const CitizenMap = () => {
         <CitizenLeafletMap 
           vendors={mockVendors}
           citizenReports={mockCitizenReports}
+          missedCalls={mockMissedCalls}
           userRole="citizen"
         />
       </main>

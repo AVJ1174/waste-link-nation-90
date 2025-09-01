@@ -45,6 +45,20 @@ export interface Reward {
   stock: number;
 }
 
+export interface MissedCall {
+  id: string;
+  callerPhone: string;
+  callerType: 'Household' | 'Vendor' | 'Bulk Generator';
+  location: string;
+  coordinates: { lat: number; lng: number };
+  wasteType?: string;
+  status: 'Awaiting waste type confirmation' | 'Confirmed' | 'Collected';
+  missedCallTime: string;
+  confirmedAt?: string;
+  confirmedBy?: string;
+  notes?: string;
+}
+
 // Delhi locations for demo data
 const delhiLocations = [
   { name: 'Connaught Place', lat: 28.6304, lng: 77.2177 },
@@ -149,6 +163,55 @@ export const mockCitizens: Citizen[] = Array.from({ length: 200 }, (_, index) =>
     totalPoints: reportsCount * avgPoints,
     reportsCount,
     joinedAt: `${Math.floor(Math.random() * 30) + 1} days ago`
+  };
+});
+
+// Generate 25 missed call records
+export const mockMissedCalls: MissedCall[] = Array.from({ length: 25 }, (_, index) => {
+  const location = delhiLocations[index % delhiLocations.length];
+  const callNum = String(index + 1).padStart(3, '0');
+  const callerTypes: ('Household' | 'Vendor' | 'Bulk Generator')[] = ['Household', 'Vendor', 'Bulk Generator'];
+  const phoneNumbers = [
+    '9876543210', '9988776655', '8899001122', '7766554433', '9977885566',
+    '8866774455', '7755663344', '9988007711', '8877669900', '7744556688',
+    '9966778899', '8855442211', '7733669988', '9944557766', '8822110099',
+    '7711223344', '9933668877', '8800557711', '7799446688', '9955334422',
+    '8844221100', '7722558833', '9911447766', '8833669955', '7700882244'
+  ];
+  
+  const isConfirmed = Math.random() > 0.6; // 40% confirmed
+  const isCollected = isConfirmed && Math.random() > 0.7; // 30% of confirmed are collected
+  
+  let status: 'Awaiting waste type confirmation' | 'Confirmed' | 'Collected';
+  if (isCollected) {
+    status = 'Collected';
+  } else if (isConfirmed) {
+    status = 'Confirmed';
+  } else {
+    status = 'Awaiting waste type confirmation';
+  }
+  
+  return {
+    id: `MC${callNum}`,
+    callerPhone: phoneNumbers[index % phoneNumbers.length],
+    callerType: callerTypes[Math.floor(Math.random() * callerTypes.length)],
+    location: location.name,
+    coordinates: { 
+      lat: location.lat + (Math.random() - 0.5) * 0.01, 
+      lng: location.lng + (Math.random() - 0.5) * 0.01 
+    },
+    wasteType: isConfirmed ? wasteTypes[Math.floor(Math.random() * wasteTypes.length)] : undefined,
+    status,
+    missedCallTime: `${Math.floor(Math.random() * 48) + 1} hours ago`,
+    confirmedAt: isConfirmed ? `${Math.floor(Math.random() * 24) + 1} hours ago` : undefined,
+    confirmedBy: isConfirmed ? `Kabadiwala K${String(Math.floor(Math.random() * 20) + 1).padStart(3, '0')}` : undefined,
+    notes: isConfirmed && Math.random() > 0.5 ? [
+      'Large quantity available',
+      'Easy access from main road',
+      'Properly sorted waste',
+      'Regular pickup location',
+      'Contact before arrival'
+    ][Math.floor(Math.random() * 5)] : undefined
   };
 });
 

@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 import CitizenLeafletMap from '@/components/CitizenLeafletMap';
-import { mockVendors, mockCitizenReports } from '@/data/demoData';
+import { mockVendors, mockCitizenReports, mockMissedCalls } from '@/data/demoData';
 
 const KabadiwalaPage = () => {
   const [tasks, setTasks] = useState([
@@ -83,6 +83,13 @@ const KabadiwalaPage = () => {
     ));
   };
 
+  const updateWasteType = (id: string, wasteType: string) => {
+    console.log('Updating waste type for missed call:', id, 'to', wasteType);
+    // In a real implementation, this would update the missed call record
+    // For demo purposes, we'll just log it
+    alert(`Waste type updated to: ${wasteType} for missed call #${id}`);
+  };
+
   const logCollection = () => {
     console.log('Logging collection:', collection);
     // Add to offline storage if needed
@@ -132,9 +139,11 @@ const KabadiwalaPage = () => {
           <TabsContent value="map" className="space-y-4">
             <CitizenLeafletMap 
               vendors={mockVendors}
-              citizenReports={mockCitizenReports} 
+              citizenReports={mockCitizenReports}
+              missedCalls={mockMissedCalls}
               userRole="kabadiwala"
               onAcceptTask={acceptTask}
+              onUpdateWasteType={updateWasteType}
             />
           </TabsContent>
 

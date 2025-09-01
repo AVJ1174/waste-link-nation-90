@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import VendorMap from '@/components/VendorMap';
 import CitizenLeafletMap from '@/components/CitizenLeafletMap';
-import { mockVendors, mockCitizenReports } from '@/data/demoData';
+import { mockVendors, mockCitizenReports, mockMissedCalls } from '@/data/demoData';
 import recycLinkLogo from '@/assets/recyclink-logo.png';
 
 const GovernmentDashboard = () => {
@@ -145,6 +145,7 @@ const GovernmentDashboard = () => {
             <CitizenLeafletMap 
               vendors={mockVendors} 
               citizenReports={mockCitizenReports}
+              missedCalls={mockMissedCalls}
               userRole="government" 
             />
           </TabsContent>
