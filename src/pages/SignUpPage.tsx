@@ -129,30 +129,60 @@ const SignUpPage = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             {step === 'role' && (
-              <div className="space-y-3">
-                {roles.map((role) => {
-                  const IconComponent = role.icon;
-                  return (
-                    <Card 
-                      key={role.id}
-                      className="cursor-pointer hover:shadow-md transition-all border-2 hover:border-primary/50"
-                      onClick={() => selectRole(role.id)}
-                    >
-                      <CardContent className="p-4">
-                        <div className="flex items-start gap-3">
-                          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <IconComponent className="h-5 w-5 text-primary" />
+              <>
+                <div className="space-y-3">
+                  {roles.map((role) => {
+                    const IconComponent = role.icon;
+                    return (
+                      <Card 
+                        key={role.id}
+                        className="cursor-pointer hover:shadow-md transition-all border-2 hover:border-primary/50"
+                        onClick={() => selectRole(role.id)}
+                      >
+                        <CardContent className="p-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <IconComponent className="h-5 w-5 text-primary" />
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-semibold text-sm">{role.name}</h3>
+                              <p className="text-xs text-muted-foreground mt-1">{role.description}</p>
+                            </div>
                           </div>
-                          <div className="flex-1">
-                            <h3 className="font-semibold text-sm">{role.name}</h3>
-                            <p className="text-xs text-muted-foreground mt-1">{role.description}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+
+                {/* Or Option - Missed Call */}
+                <div className="mt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex-1 h-px bg-border"></div>
+                    <span className="text-xs text-muted-foreground font-medium">OR</span>
+                    <div className="flex-1 h-px bg-border"></div>
+                  </div>
+                  
+                  <Card className="bg-gradient-to-br from-success/5 to-primary/5 border-success/20">
+                    <CardContent className="p-4 text-center">
+                      <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Phone className="h-4 w-4 text-success" />
+                      </div>
+                      <h4 className="font-semibold text-sm mb-1">Not Tech-Savvy?</h4>
+                      <p className="text-xs text-muted-foreground mb-3">
+                        Give a missed call to get started instantly
+                      </p>
+                      <div className="bg-card/60 backdrop-blur-sm rounded-lg p-3 border border-success/20">
+                        <p className="text-xs text-muted-foreground mb-1">Demo Missed Call Number</p>
+                        <p className="text-base font-bold text-success">+91 98765 43210</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Auto waste pickup request
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </>
             )}
 
             {step === 'phone' && (

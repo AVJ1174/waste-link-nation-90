@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Recycle, Users, Building, Truck, Landmark, Shield, ArrowRight, CheckCircle, Star, TrendingUp } from 'lucide-react';
+import { Recycle, Users, Building, Truck, Landmark, Shield, ArrowRight, CheckCircle, Star, TrendingUp, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -54,7 +54,7 @@ const Index = () => {
             to create an efficient waste trading ecosystem with transparent payments and compliance tracking.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button size="lg" onClick={() => navigateToRole('vendor')} className="gap-2">
               <Users className="h-5 w-5" />
               I'm a Vendor
@@ -63,6 +63,34 @@ const Index = () => {
               <Truck className="h-5 w-5" />
               I'm a Kabadiwala
             </Button>
+          </div>
+
+          {/* Or Option - Missed Call */}
+          <div className="mb-12">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex-1 h-px bg-border"></div>
+              <span className="text-sm text-muted-foreground font-medium">OR</span>
+              <div className="flex-1 h-px bg-border"></div>
+            </div>
+            
+            <Card className="max-w-md mx-auto bg-gradient-to-br from-success/5 to-primary/5 border-success/20">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Phone className="h-6 w-6 text-success" />
+                </div>
+                <h3 className="font-semibold mb-2">Not Tech-Savvy?</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Give a missed call to get started instantly
+                </p>
+                <div className="bg-card/60 backdrop-blur-sm rounded-lg p-3 border border-success/20">
+                  <p className="text-xs text-muted-foreground mb-1">Demo Missed Call Number</p>
+                  <p className="text-lg font-bold text-success">+91 98765 43210</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    We'll automatically create a waste pickup request at your location
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Live Stats */}
