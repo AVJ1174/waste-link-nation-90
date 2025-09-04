@@ -284,7 +284,6 @@ const CitizenLeafletMap: React.FC<CitizenLeafletMapProps> = ({
             </span>
           </div>
           <div style="color: #666; font-size: 13px; line-height: 1.4;">
-            <div style="margin-bottom: 3px;">📞 ${call.callerPhone}</div>
             <div style="margin-bottom: 3px;">👤 ${call.callerType}</div>
             <div style="margin-bottom: 3px;">📍 ${call.location}</div>
             <div style="margin-bottom: 3px;">🕒 ${call.missedCallTime}</div>
@@ -455,12 +454,12 @@ const CitizenLeafletMap: React.FC<CitizenLeafletMapProps> = ({
                              {(report as any).citizenName} • {(report as any).points} pts
                            </div>
                          )}
-                         {report.type === 'missedCall' && (
-                           <div className="flex items-center gap-1">
-                             <Clock className="h-3 w-3" />
-                             {(report as any).callerType} • {(report as any).callerPhone}
-                           </div>
-                         )}
+                          {report.type === 'missedCall' && (
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {(report as any).callerType} • Call #{report.id}
+                            </div>
+                          )}
                        </div>
                     </div>
                      {userRole === 'kabadiwala' && (
