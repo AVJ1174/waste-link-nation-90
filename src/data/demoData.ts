@@ -59,9 +59,9 @@ export interface MissedCall {
   notes?: string;
 }
 
-// Locations across major Indian cities for demo data
+// Locations across major Indian cities for demo data (200+ locations)
 const indianLocations = [
-  // Delhi NCR (30 locations)
+  // Delhi NCR (40 locations)
   { name: 'Connaught Place, Delhi', lat: 28.6304, lng: 77.2177 },
   { name: 'Karol Bagh, Delhi', lat: 28.6507, lng: 77.1900 },
   { name: 'Lajpat Nagar, Delhi', lat: 28.5656, lng: 77.2430 },
@@ -92,8 +92,18 @@ const indianLocations = [
   { name: 'Greater Kailash, Delhi', lat: 28.5494, lng: 77.2428 },
   { name: 'Vasant Vihar, Delhi', lat: 28.5678, lng: 77.1589 },
   { name: 'Chanakyapuri, Delhi', lat: 28.5933, lng: 77.1956 },
+  { name: 'Naraina, Delhi', lat: 28.6219, lng: 77.1194 },
+  { name: 'Moti Nagar, Delhi', lat: 28.6585, lng: 77.1428 },
+  { name: 'Kirti Nagar, Delhi', lat: 28.6585, lng: 77.1428 },
+  { name: 'Punjabi Bagh, Delhi', lat: 28.6707, lng: 77.1319 },
+  { name: 'Ashok Vihar, Delhi', lat: 28.6893, lng: 77.1828 },
+  { name: 'Model Town, Delhi', lat: 28.7041, lng: 77.1828 },
+  { name: 'Civil Lines, Delhi', lat: 28.6785, lng: 77.2264 },
+  { name: 'Kashmere Gate, Delhi', lat: 28.6676, lng: 77.2273 },
+  { name: 'Shastri Nagar, Delhi', lat: 28.6366, lng: 77.2306 },
+  { name: 'Shahdara, Delhi', lat: 28.6785, lng: 77.2877 },
 
-  // Mumbai (25 locations)
+  // Mumbai (40 locations)
   { name: 'Andheri West, Mumbai', lat: 19.1136, lng: 72.8697 },
   { name: 'Bandra, Mumbai', lat: 19.0596, lng: 72.8295 },
   { name: 'Juhu, Mumbai', lat: 19.1075, lng: 72.8263 },
@@ -119,8 +129,23 @@ const indianLocations = [
   { name: 'Kings Circle, Mumbai', lat: 19.0270, lng: 72.8570 },
   { name: 'Sion, Mumbai', lat: 19.0404, lng: 72.8618 },
   { name: 'Kurla, Mumbai', lat: 19.0728, lng: 72.8826 },
+  { name: 'Ghatkopar, Mumbai', lat: 19.0862, lng: 72.9081 },
+  { name: 'Vikhroli, Mumbai', lat: 19.1075, lng: 72.9300 },
+  { name: 'Mulund, Mumbai', lat: 19.1728, lng: 72.9508 },
+  { name: 'Bhandup, Mumbai', lat: 19.1440, lng: 72.9378 },
+  { name: 'Kanjurmarg, Mumbai', lat: 19.1317, lng: 72.9378 },
+  { name: 'Vashi, Navi Mumbai', lat: 19.0728, lng: 73.0015 },
+  { name: 'Belapur, Navi Mumbai', lat: 19.0330, lng: 73.0455 },
+  { name: 'Kharghar, Navi Mumbai', lat: 19.0330, lng: 73.0673 },
+  { name: 'Panvel, Navi Mumbai', lat: 18.9894, lng: 73.1197 },
+  { name: 'Airoli, Navi Mumbai', lat: 19.1568, lng: 72.9959 },
+  { name: 'Ghansoli, Navi Mumbai', lat: 19.1197, lng: 73.0015 },
+  { name: 'Kopar Khairane, Navi Mumbai', lat: 19.1075, lng: 73.0015 },
+  { name: 'Nerul, Navi Mumbai', lat: 19.0330, lng: 73.0197 },
+  { name: 'Seawoods, Navi Mumbai', lat: 19.0197, lng: 73.0197 },
+  { name: 'Ulwe, Navi Mumbai', lat: 18.9894, lng: 73.0673 },
 
-  // Bangalore (20 locations)
+  // Bangalore (35 locations)
   { name: 'Koramangala, Bangalore', lat: 12.9352, lng: 77.6245 },
   { name: 'Indiranagar, Bangalore', lat: 12.9719, lng: 77.6412 },
   { name: 'Whitefield, Bangalore', lat: 12.9698, lng: 77.7500 },
@@ -141,8 +166,23 @@ const indianLocations = [
   { name: 'Bannerghatta Road, Bangalore', lat: 12.8956, lng: 77.5946 },
   { name: 'Sarjapur Road, Bangalore', lat: 12.9010, lng: 77.6948 },
   { name: 'Outer Ring Road, Bangalore', lat: 12.9539, lng: 77.6821 },
+  { name: 'Bellandur, Bangalore', lat: 12.9256, lng: 77.6710 },
+  { name: 'Silk Board, Bangalore', lat: 12.9082, lng: 77.6245 },
+  { name: 'JP Nagar, Bangalore', lat: 12.9082, lng: 77.5835 },
+  { name: 'Basavanagudi, Bangalore', lat: 12.9395, lng: 77.5835 },
+  { name: 'Vijayanagar, Bangalore', lat: 12.9716, lng: 77.5322 },
+  { name: 'Peenya, Bangalore', lat: 13.0287, lng: 77.5197 },
+  { name: 'RT Nagar, Bangalore', lat: 13.0245, lng: 77.5963 },
+  { name: 'Sadashivanagar, Bangalore', lat: 13.0039, lng: 77.5835 },
+  { name: 'Frazer Town, Bangalore', lat: 12.9916, lng: 77.6153 },
+  { name: 'Cox Town, Bangalore', lat: 12.9916, lng: 77.6245 },
+  { name: 'Banaswadi, Bangalore', lat: 13.0110, lng: 77.6476 },
+  { name: 'Kalyan Nagar, Bangalore', lat: 13.0245, lng: 77.6412 },
+  { name: 'HBR Layout, Bangalore', lat: 13.0355, lng: 77.6245 },
+  { name: 'Kammanahalli, Bangalore', lat: 13.0110, lng: 77.6338 },
+  { name: 'Ramamurthy Nagar, Bangalore', lat: 13.0355, lng: 77.6947 },
 
-  // Chennai (15 locations)
+  // Chennai (25 locations)
   { name: 'T Nagar, Chennai', lat: 13.0418, lng: 80.2341 },
   { name: 'Anna Nagar, Chennai', lat: 13.0850, lng: 80.2101 },
   { name: 'Adyar, Chennai', lat: 13.0067, lng: 80.2206 },
@@ -158,8 +198,18 @@ const indianLocations = [
   { name: 'Nungambakkam, Chennai', lat: 13.0732, lng: 80.2412 },
   { name: 'Egmore, Chennai', lat: 13.0732, lng: 80.2609 },
   { name: 'Central, Chennai', lat: 13.0827, lng: 80.2707 },
+  { name: 'Guindy, Chennai', lat: 13.0067, lng: 80.2206 },
+  { name: 'Koyambedu, Chennai', lat: 13.0732, lng: 80.1946 },
+  { name: 'Ashok Nagar, Chennai', lat: 13.0339, lng: 80.2101 },
+  { name: 'Kodambakkam, Chennai', lat: 13.0513, lng: 80.2267 },
+  { name: 'Saidapet, Chennai', lat: 13.0215, lng: 80.2267 },
+  { name: 'Teynampet, Chennai', lat: 13.0418, lng: 80.2412 },
+  { name: 'Kilpauk, Chennai', lat: 13.0850, lng: 80.2412 },
+  { name: 'Purasawalkam, Chennai', lat: 13.0850, lng: 80.2609 },
+  { name: 'Triplicane, Chennai', lat: 13.0513, lng: 80.2824 },
+  { name: 'Royapettah, Chennai', lat: 13.0513, lng: 80.2619 },
 
-  // Hyderabad (15 locations)
+  // Hyderabad (25 locations)
   { name: 'Hitech City, Hyderabad', lat: 17.4483, lng: 78.3915 },
   { name: 'Banjara Hills, Hyderabad', lat: 17.4126, lng: 78.4482 },
   { name: 'Jubilee Hills, Hyderabad', lat: 17.4239, lng: 78.4738 },
@@ -175,8 +225,18 @@ const indianLocations = [
   { name: 'LB Nagar, Hyderabad', lat: 17.3491, lng: 78.5438 },
   { name: 'Dilsukhnagar, Hyderabad', lat: 17.3687, lng: 78.5242 },
   { name: 'Uppal, Hyderabad', lat: 17.4065, lng: 78.5691 },
+  { name: 'Charminar, Hyderabad', lat: 17.3616, lng: 78.4747 },
+  { name: 'Himayatnagar, Hyderabad', lat: 17.4021, lng: 78.4747 },
+  { name: 'Koti, Hyderabad', lat: 17.3850, lng: 78.4636 },
+  { name: 'Sultan Bazaar, Hyderabad', lat: 17.3850, lng: 78.4636 },
+  { name: 'Paradise, Hyderabad', lat: 17.5040, lng: 78.4867 },
+  { name: 'Tarnaka, Hyderabad', lat: 17.4239, lng: 78.5207 },
+  { name: 'Habsiguda, Hyderabad', lat: 17.4021, lng: 78.5428 },
+  { name: 'Nacharam, Hyderabad', lat: 17.4021, lng: 78.5691 },
+  { name: 'Manikonda, Hyderabad', lat: 17.4021, lng: 78.3487 },
+  { name: 'Financial District, Hyderabad', lat: 17.4239, lng: 78.3270 },
 
-  // Pune (12 locations)
+  // Pune (20 locations)
   { name: 'Koregaon Park, Pune', lat: 18.5362, lng: 73.8958 },
   { name: 'Hinjewadi, Pune', lat: 18.5679, lng: 73.7143 },
   { name: 'Wakad, Pune', lat: 18.5975, lng: 73.7898 },
@@ -189,8 +249,16 @@ const indianLocations = [
   { name: 'Camp, Pune', lat: 18.5074, lng: 73.8798 },
   { name: 'Hadapsar, Pune', lat: 18.5089, lng: 73.9370 },
   { name: 'Viman Nagar, Pune', lat: 18.5679, lng: 73.9143 },
+  { name: 'Yerawada, Pune', lat: 18.5679, lng: 73.8958 },
+  { name: 'Kharadi, Pune', lat: 18.5679, lng: 73.9370 },
+  { name: 'Magarpatta, Pune', lat: 18.5089, lng: 73.9370 },
+  { name: 'Warje, Pune', lat: 18.4782, lng: 73.8077 },
+  { name: 'Karve Nagar, Pune', lat: 18.4782, lng: 73.8247 },
+  { name: 'Deccan, Pune', lat: 18.5204, lng: 73.8437 },
+  { name: 'Pimpri, Pune', lat: 18.6298, lng: 73.8077 },
+  { name: 'Chinchwad, Pune', lat: 18.6479, lng: 73.8077 },
 
-  // Kolkata (10 locations)
+  // Kolkata (15 locations)
   { name: 'Park Street, Kolkata', lat: 22.5542, lng: 88.3516 },
   { name: 'Salt Lake, Kolkata', lat: 22.5958, lng: 88.4497 },
   { name: 'New Town, Kolkata', lat: 22.5958, lng: 88.4887 },
@@ -201,8 +269,13 @@ const indianLocations = [
   { name: 'Esplanade, Kolkata', lat: 22.5726, lng: 88.3639 },
   { name: 'Sealdah, Kolkata', lat: 22.5726, lng: 88.3731 },
   { name: 'Rajarhat, Kolkata', lat: 22.6203, lng: 88.4637 },
+  { name: 'Dumdum, Kolkata', lat: 22.6203, lng: 88.4144 },
+  { name: 'Behala, Kolkata', lat: 22.4931, lng: 88.3144 },
+  { name: 'Jadavpur, Kolkata', lat: 22.4931, lng: 88.3637 },
+  { name: 'Garia, Kolkata', lat: 22.4626, lng: 88.3887 },
+  { name: 'Tollygunge, Kolkata', lat: 22.4626, lng: 88.3637 },
 
-  // Ahmedabad (8 locations)
+  // Ahmedabad (15 locations)  
   { name: 'SG Highway, Ahmedabad', lat: 23.0395, lng: 72.5661 },
   { name: 'Satellite, Ahmedabad', lat: 23.0395, lng: 72.5197 },
   { name: 'Vastrapur, Ahmedabad', lat: 23.0395, lng: 72.5197 },
@@ -210,7 +283,40 @@ const indianLocations = [
   { name: 'CG Road, Ahmedabad', lat: 23.0395, lng: 72.5661 },
   { name: 'Ellis Bridge, Ahmedabad', lat: 23.0204, lng: 72.5797 },
   { name: 'Maninagar, Ahmedabad', lat: 22.9959, lng: 72.5797 },
-  { name: 'Paldi, Ahmedabad', lat: 23.0204, lng: 72.5661 }
+  { name: 'Paldi, Ahmedabad', lat: 23.0204, lng: 72.5661 },
+  { name: 'Bopal, Ahmedabad', lat: 23.0395, lng: 72.4661 },
+  { name: 'Gota, Ahmedabad', lat: 23.0704, lng: 72.5197 },
+  { name: 'Thaltej, Ahmedabad', lat: 23.0704, lng: 72.5197 },
+  { name: 'Bodakdev, Ahmedabad', lat: 23.0395, lng: 72.4797 },
+  { name: 'Ambawadi, Ahmedabad', lat: 23.0204, lng: 72.5461 },
+  { name: 'Shahibaug, Ahmedabad', lat: 23.0704, lng: 72.5797 },
+  { name: 'Chandkheda, Ahmedabad', lat: 23.1304, lng: 72.5797 },
+
+  // Jaipur (12 locations)
+  { name: 'Pink City, Jaipur', lat: 26.9124, lng: 75.7873 },
+  { name: 'Malviya Nagar, Jaipur', lat: 26.8467, lng: 75.8056 },
+  { name: 'Vaishali Nagar, Jaipur', lat: 26.9341, lng: 75.7267 },
+  { name: 'Mansarovar, Jaipur', lat: 26.8467, lng: 75.7647 },
+  { name: 'Tonk Road, Jaipur', lat: 26.8467, lng: 75.8289 },
+  { name: 'C Scheme, Jaipur', lat: 26.9124, lng: 75.8056 },
+  { name: 'Bani Park, Jaipur', lat: 26.9341, lng: 75.7873 },
+  { name: 'Raja Park, Jaipur', lat: 26.9341, lng: 75.8056 },
+  { name: 'Civil Lines, Jaipur', lat: 26.9341, lng: 75.8144 },
+  { name: 'Ajmer Road, Jaipur', lat: 26.8784, lng: 75.7267 },
+  { name: 'JLN Marg, Jaipur', lat: 26.8784, lng: 75.8056 },
+  { name: 'Sindhi Camp, Jaipur', lat: 26.9341, lng: 75.7647 },
+
+  // Lucknow (10 locations)
+  { name: 'Hazratganj, Lucknow', lat: 26.8467, lng: 80.9462 },
+  { name: 'Gomti Nagar, Lucknow', lat: 26.8467, lng: 81.0462 },
+  { name: 'Aliganj, Lucknow', lat: 26.8784, lng: 80.9756 },
+  { name: 'Indira Nagar, Lucknow', lat: 26.8467, lng: 80.9756 },
+  { name: 'Mahanagar, Lucknow', lat: 26.8784, lng: 81.0209 },
+  { name: 'Aminabad, Lucknow', lat: 26.8467, lng: 80.9209 },
+  { name: 'Chowk, Lucknow', lat: 26.8467, lng: 80.9209 },
+  { name: 'Alambagh, Lucknow', lat: 26.8150, lng: 80.9209 },
+  { name: 'Rajajipuram, Lucknow', lat: 26.8784, lng: 80.9209 },
+  { name: 'Vikas Nagar, Lucknow', lat: 26.8784, lng: 81.0462 }
 ];
 
 const wasteTypes = ['Plastic', 'Paper', 'Metal', 'Glass', 'E-waste', 'Organic', 'Textile', 'Mixed'];
@@ -227,8 +333,8 @@ function getRandomQuantity(): string {
   return quantities[Math.floor(Math.random() * quantities.length)];
 }
 
-// Generate 250 vendor entries across India
-export const mockVendors: Vendor[] = Array.from({ length: 250 }, (_, index) => {
+// Generate 800 vendor entries across India
+export const mockVendors: Vendor[] = Array.from({ length: 800 }, (_, index) => {
   const location = indianLocations[index % indianLocations.length];
   const vendorNum = String(index + 1).padStart(3, '0');
   
@@ -236,8 +342,8 @@ export const mockVendors: Vendor[] = Array.from({ length: 250 }, (_, index) => {
     id: `V${vendorNum}`,
     location: location.name,
     coordinates: { 
-      lat: location.lat + (Math.random() - 0.5) * 0.01, 
-      lng: location.lng + (Math.random() - 0.5) * 0.01 
+      lat: location.lat + (Math.random() - 0.5) * 0.008, 
+      lng: location.lng + (Math.random() - 0.5) * 0.008 
     },
     wasteType: wasteTypes[Math.floor(Math.random() * wasteTypes.length)],
     quantity: getRandomQuantity(),
@@ -247,11 +353,11 @@ export const mockVendors: Vendor[] = Array.from({ length: 250 }, (_, index) => {
   };
 });
 
-// Generate 150 citizen reports across India
-export const mockCitizenReports: CitizenReport[] = Array.from({ length: 150 }, (_, index) => {
+// Generate 500 citizen reports across India
+export const mockCitizenReports: CitizenReport[] = Array.from({ length: 500 }, (_, index) => {
   const location = indianLocations[index % indianLocations.length];
   const reportNum = String(index + 1).padStart(3, '0');
-  const citizenNum = String(Math.floor(Math.random() * 500) + 1).padStart(3, '0');
+  const citizenNum = String(Math.floor(Math.random() * 1000) + 1).padStart(3, '0');
   
   return {
     id: `CR${reportNum}`,
@@ -259,8 +365,8 @@ export const mockCitizenReports: CitizenReport[] = Array.from({ length: 150 }, (
     citizenName: `Citizen ${citizenNum}`,
     location: location.name,
     coordinates: { 
-      lat: location.lat + (Math.random() - 0.5) * 0.015, 
-      lng: location.lng + (Math.random() - 0.5) * 0.015 
+      lat: location.lat + (Math.random() - 0.5) * 0.012, 
+      lng: location.lng + (Math.random() - 0.5) * 0.012 
     },
     wasteType: wasteTypes[Math.floor(Math.random() * wasteTypes.length)],
     description: [
@@ -271,8 +377,12 @@ export const mockCitizenReports: CitizenReport[] = Array.from({ length: 150 }, (
       'Food waste near market area',
       'Electronic waste dumped in open area',
       'Medical waste improperly disposed',
-      'Large pile of mixed waste'
-    ][Math.floor(Math.random() * 8)],
+      'Large pile of mixed waste',
+      'Hazardous chemicals disposal issue',
+      'Broken glass on walking path',
+      'Tire dumping in vacant lot',
+      'Paint cans left in residential area'
+    ][Math.floor(Math.random() * 12)],
     status: ['reported', 'assigned', 'collected'][Math.floor(Math.random() * 3)] as 'reported' | 'assigned' | 'collected',
     submittedAt: getRandomTime(),
     points: Math.floor(Math.random() * 50) + 10, // 10-60 points
@@ -281,10 +391,10 @@ export const mockCitizenReports: CitizenReport[] = Array.from({ length: 150 }, (
 });
 
 // Demo citizens
-export const mockCitizens: Citizen[] = Array.from({ length: 500 }, (_, index) => {
+export const mockCitizens: Citizen[] = Array.from({ length: 1000 }, (_, index) => {
   const citizenNum = String(index + 1).padStart(3, '0');
-  const reportsCount = Math.floor(Math.random() * 15) + 1;
-  const avgPoints = Math.floor(Math.random() * 40) + 20;
+  const reportsCount = Math.floor(Math.random() * 20) + 1;
+  const avgPoints = Math.floor(Math.random() * 50) + 15;
   
   return {
     id: `C${citizenNum}`,
@@ -292,12 +402,12 @@ export const mockCitizens: Citizen[] = Array.from({ length: 500 }, (_, index) =>
     phone: `+91 98765${String(Math.floor(Math.random() * 100000)).padStart(5, '0')}`,
     totalPoints: reportsCount * avgPoints,
     reportsCount,
-    joinedAt: `${Math.floor(Math.random() * 30) + 1} days ago`
+    joinedAt: `${Math.floor(Math.random() * 60) + 1} days ago`
   };
 });
 
-// Generate 100 missed call records across India
-export const mockMissedCalls: MissedCall[] = Array.from({ length: 100 }, (_, index) => {
+// Generate 300 missed call records across India
+export const mockMissedCalls: MissedCall[] = Array.from({ length: 300 }, (_, index) => {
   const location = indianLocations[index % indianLocations.length];
   const callNum = String(index + 1).padStart(3, '0');
   const callerTypes: ('Household' | 'Vendor' | 'Bulk Generator')[] = ['Household', 'Vendor', 'Bulk Generator'];
