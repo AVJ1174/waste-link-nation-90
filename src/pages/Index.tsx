@@ -78,8 +78,7 @@ const Index = () => {
                 <div className="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Phone className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="font-semibold mb-2">Not Tech-Savvy?</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="font-bold mb-4">
                   Give a missed call to get started instantly
                 </p>
                 <div className="bg-card/60 backdrop-blur-sm rounded-lg p-3 border border-success/20">
