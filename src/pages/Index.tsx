@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Recycle, Users, Building, Truck, Landmark, Shield, ArrowRight, CheckCircle, Star, TrendingUp, Phone } from 'lucide-react';
+import { Users, Building, Truck, Shield, ArrowRight, CheckCircle, TrendingUp, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import recycLinkLogo from '@/assets/recyclink-logo.png';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -22,10 +23,8 @@ const Index = () => {
       <header className="bg-card/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}>
-              <div className="w-8 h-8 bg-gradient-to-br from-success to-success/70 rounded-lg flex items-center justify-center">
-                <Recycle className="h-5 w-5 text-background" />
-              </div>
+            <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}> 
+              <img src={recycLinkLogo} alt="RecycLink interlocking circles logo" className="h-8 w-8" loading="eager" />
               <h1 className="text-xl font-bold text-foreground">Recyclink</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -359,9 +358,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <div className="w-6 h-6 bg-gradient-to-br from-success to-success/70 rounded flex items-center justify-center">
-                <Recycle className="h-4 w-4 text-background" />
-              </div>
+              <img src={recycLinkLogo} alt="RecycLink interlocking circles logo" className="h-6 w-6" loading="lazy" />
               <span className="font-semibold">Recyclink</span>
             </div>
             <div className="flex gap-6 text-sm text-muted-foreground">
