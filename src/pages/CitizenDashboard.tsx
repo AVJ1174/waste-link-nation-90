@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { mockCitizenReports, mockCitizens, mockRewards } from '@/data/demoData';
-import recycLinkLogo from '@/assets/recyclink-logo.png';
+const recycLinkLogo = '/lovable-uploads/dc2b04ac-f72d-4240-ac0f-f14cd82f5f51.png';
 
 const CitizenDashboard = () => {
   // Simulate current citizen
@@ -23,7 +23,7 @@ const CitizenDashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src={recycLinkLogo} alt="RecycLink Logo" className="h-8 w-8" />
+              <img src={recycLinkLogo} alt="RecycLink logo - three interlocking circles" className="h-8 w-8 filter contrast-125 brightness-110" />
               <div>
                 <h1 className="text-2xl font-bold text-foreground">RecycLink</h1>
                 <p className="text-sm text-muted-foreground">Citizen Dashboard</p>

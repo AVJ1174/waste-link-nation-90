@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import CitizenLeafletMap from '@/components/CitizenLeafletMap';
 import { mockVendors, mockCitizenReports, mockMissedCalls } from '@/data/demoData';
-import recycLinkLogo from '@/assets/recyclink-logo.png';
+const recycLinkLogo = '/lovable-uploads/dc2b04ac-f72d-4240-ac0f-f14cd82f5f51.png';
 
 const CitizenMap = () => {
   return (
@@ -13,7 +13,7 @@ const CitizenMap = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src={recycLinkLogo} alt="RecycLink Logo" className="h-8 w-8" />
+              <img src={recycLinkLogo} alt="RecycLink logo - three interlocking circles" className="h-8 w-8 filter contrast-125 brightness-110" />
               <div>
                 <h1 className="text-2xl font-bold text-foreground">RecycLink</h1>
                 <p className="text-sm text-muted-foreground">Waste Reports Map</p>

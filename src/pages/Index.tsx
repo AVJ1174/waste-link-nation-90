@@ -4,7 +4,7 @@ import { Users, Building, Truck, Shield, ArrowRight, CheckCircle, TrendingUp, Ph
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import recycLinkLogo from '@/assets/recyclink-logo.png';
+const recycLinkLogo = '/lovable-uploads/dc2b04ac-f72d-4240-ac0f-f14cd82f5f51.png';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}> 
-              <img src={recycLinkLogo} alt="RecycLink interlocking circles logo" className="h-8 w-8" loading="eager" />
+              <img src={recycLinkLogo} alt="RecycLink interlocking circles logo" className="h-8 w-8 filter contrast-125 brightness-110" loading="eager" />
               <h1 className="text-xl font-bold text-foreground">Recyclink</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -358,7 +358,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <img src={recycLinkLogo} alt="RecycLink interlocking circles logo" className="h-6 w-6" loading="lazy" />
+              <img src={recycLinkLogo} alt="RecycLink interlocking circles logo" className="h-6 w-6 filter contrast-125 brightness-110" loading="lazy" />
               <span className="font-semibold">Recyclink</span>
             </div>
             <div className="flex gap-6 text-sm text-muted-foreground">
