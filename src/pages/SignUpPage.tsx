@@ -168,8 +168,7 @@ const SignUpPage = () => {
                       <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-2">
                         <Phone className="h-4 w-4 text-success" />
                       </div>
-                      <h4 className="font-semibold text-sm mb-1">Not Tech-Savvy?</h4>
-                      <p className="text-xs text-muted-foreground mb-3">
+                      <p className="text-sm font-bold mb-3">
                         Give a missed call to get started instantly
                       </p>
                       <div className="bg-card/60 backdrop-blur-sm rounded-lg p-3 border border-success/20">
