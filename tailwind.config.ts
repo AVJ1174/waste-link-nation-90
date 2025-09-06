@@ -77,6 +77,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				eco: {
+					primary: 'hsl(var(--eco-primary))',
+					'primary-foreground': 'hsl(var(--eco-primary-foreground))',
+					secondary: 'hsl(var(--eco-secondary))',
+					'secondary-foreground': 'hsl(var(--eco-secondary-foreground))',
+					accent: 'hsl(var(--eco-accent))',
+					'accent-foreground': 'hsl(var(--eco-accent-foreground))'
+				},
+				tier: {
+					bronze: 'hsl(var(--tier-bronze))',
+					silver: 'hsl(var(--tier-silver))',
+					gold: 'hsl(var(--tier-gold))'
 				}
 			},
 			borderRadius: {

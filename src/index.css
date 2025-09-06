@@ -44,6 +44,19 @@ All colors MUST be HSL.
     --premium: 262 83% 58%;
     --premium-foreground: 210 40% 98%;
 
+    --eco-primary: 120 60% 45%;
+    --eco-primary-foreground: 0 0% 100%;
+    
+    --eco-secondary: 110 50% 55%;
+    --eco-secondary-foreground: 0 0% 100%;
+    
+    --eco-accent: 45 90% 60%;
+    --eco-accent-foreground: 222.2 47.4% 11.2%;
+    
+    --tier-bronze: 30 60% 50%;
+    --tier-silver: 0 0% 70%;
+    --tier-gold: 45 90% 55%;
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
@@ -103,6 +116,19 @@ All colors MUST be HSL.
 
     --premium: 262 83% 58%;
     --premium-foreground: 210 40% 98%;
+
+    --eco-primary: 120 60% 45%;
+    --eco-primary-foreground: 0 0% 100%;
+    
+    --eco-secondary: 110 50% 55%;
+    --eco-secondary-foreground: 0 0% 100%;
+    
+    --eco-accent: 45 90% 60%;
+    --eco-accent-foreground: 222.2 47.4% 11.2%;
+    
+    --tier-bronze: 30 60% 50%;
+    --tier-silver: 0 0% 70%;
+    --tier-gold: 45 90% 55%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
