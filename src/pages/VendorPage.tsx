@@ -14,13 +14,22 @@ import {
   Calendar,
   Target,
   CheckCircle2,
-  Zap
+  Zap,
+  MapPin,
+  Camera,
+  Plus,
+  Trash2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 
 interface Transaction {
   id: string;
@@ -50,10 +59,32 @@ interface Reward {
 }
 
 const VendorPage = () => {
+  const { toast } = useToast();
   const [currentBalance] = useState(2850);
   const [totalPoints] = useState(1240);
   const [currentTier] = useState('Silver');
   const [nextTierProgress] = useState(65);
+  
+  // Waste reporting form state
+  const [wasteForm, setWasteForm] = useState({
+    location: '',
+    coordinates: { lat: 0, lng: 0 },
+    wasteType: '',
+    quantity: '',
+    description: '',
+    image: null as File | null,
+    imagePreview: ''
+  });
+
+  const wasteTypes = [
+    'Plastic Bottles',
+    'Paper/Cardboard',
+    'Electronic Waste',
+    'Metal Scrap',
+    'Glass',
+    'Organic Waste',
+    'Mixed Recyclables'
+  ];
 
   const [transactions] = useState<Transaction[]>([
     {
@@ -152,6 +183,74 @@ const VendorPage = () => {
     }
   };
 
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setWasteForm(prev => ({ ...prev, image: file }));
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setWasteForm(prev => ({ ...prev, imagePreview: reader.result as string }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setWasteForm(prev => ({
+          ...prev,
+          coordinates: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        }));
+        toast({
+          title: "Location obtained",
+          description: "GPS coordinates have been set successfully.",
+        });
+      }, (error) => {
+        toast({
+          title: "Location error",
+          description: "Unable to get current location. Please enter manually.",
+          variant: "destructive",
+        });
+      });
+    }
+  };
+
+  const handleWasteSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!wasteForm.location || !wasteForm.wasteType || !wasteForm.quantity) {
+      toast({
+        title: "Missing information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Waste reported successfully!",
+        description: `You've earned 50 points and ₹75 for reporting ${wasteForm.wasteType}. Keep up the great work!`,
+      });
+      
+      // Reset form
+      setWasteForm({
+        location: '',
+        coordinates: { lat: 0, lng: 0 },
+        wasteType: '',
+        quantity: '',
+        description: '',
+        image: null,
+        imagePreview: ''
+      });
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-eco-primary/5 via-background to-eco-secondary/5">
       {/* Header */}
@@ -237,10 +336,11 @@ const VendorPage = () => {
         </Card>
 
         <Tabs defaultValue="transactions" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
             <TabsTrigger value="rewards">Rewards</TabsTrigger>
+            <TabsTrigger value="report">Report Waste</TabsTrigger>
           </TabsList>
 
           {/* Transaction History */}
@@ -401,6 +501,162 @@ const VendorPage = () => {
                     View Collection Tips
                   </Button>
                 </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Report Waste */}
+          <TabsContent value="report" className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Plus className="h-5 w-5 text-eco-primary" />
+                  Report New Waste Collection
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleWasteSubmit} className="space-y-6">
+                  {/* Image Upload */}
+                  <div>
+                    <Label>Upload Photo of Waste (Optional)</Label>
+                    <div className="mt-2">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                        id="waste-image"
+                      />
+                      <label
+                        htmlFor="waste-image"
+                        className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-muted-foreground/25 rounded-lg cursor-pointer hover:border-eco-primary/50 transition-colors"
+                      >
+                        {wasteForm.imagePreview ? (
+                          <img
+                            src={wasteForm.imagePreview}
+                            alt="Waste preview"
+                            className="w-full h-full object-cover rounded-lg"
+                          />
+                        ) : (
+                          <div className="flex flex-col items-center gap-2">
+                            <Camera className="h-8 w-8 text-muted-foreground" />
+                            <span className="text-sm text-muted-foreground">
+                              Click to upload waste photo
+                            </span>
+                          </div>
+                        )}
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="location">Collection Location *</Label>
+                      <Input
+                        id="location"
+                        type="text"
+                        placeholder="Enter collection address"
+                        value={wasteForm.location}
+                        onChange={(e) => setWasteForm(prev => ({ ...prev, location: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label>GPS Coordinates</Label>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={getCurrentLocation}
+                        className="w-full justify-start"
+                      >
+                        <MapPin className="h-4 w-4 mr-2" />
+                        {wasteForm.coordinates.lat && wasteForm.coordinates.lng 
+                          ? `${wasteForm.coordinates.lat.toFixed(4)}, ${wasteForm.coordinates.lng.toFixed(4)}`
+                          : "Get Current Location"
+                        }
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Waste Type and Quantity */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="waste-type">Waste Type *</Label>
+                      <Select
+                        value={wasteForm.wasteType}
+                        onValueChange={(value) => setWasteForm(prev => ({ ...prev, wasteType: value }))}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select waste type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {wasteTypes.map((type) => (
+                            <SelectItem key={type} value={type}>
+                              <div className="flex items-center gap-2">
+                                <Trash2 className="h-4 w-4 text-eco-primary" />
+                                {type}
+                              </div>
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="quantity">Estimated Quantity (kg) *</Label>
+                      <Input
+                        id="quantity"
+                        type="number"
+                        placeholder="Enter quantity in kg"
+                        value={wasteForm.quantity}
+                        onChange={(e) => setWasteForm(prev => ({ ...prev, quantity: e.target.value }))}
+                        min="0.1"
+                        step="0.1"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <div>
+                    <Label htmlFor="description">Additional Notes (Optional)</Label>
+                    <Textarea
+                      id="description"
+                      placeholder="Any additional details about the waste collection..."
+                      value={wasteForm.description}
+                      onChange={(e) => setWasteForm(prev => ({ ...prev, description: e.target.value }))}
+                      rows={3}
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <Button
+                    type="submit"
+                    className="w-full bg-eco-primary hover:bg-eco-primary/90"
+                    size="lg"
+                  >
+                    <Plus className="h-4 w-4 mr-2" />
+                    Report Waste Collection
+                  </Button>
+                </form>
+
+                {/* Information Card */}
+                <Card className="mt-6 bg-eco-primary/5 border-eco-primary/20">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full bg-eco-primary/20 flex items-center justify-center flex-shrink-0">
+                        <Coins className="h-4 w-4 text-eco-primary" />
+                      </div>
+                      <div className="text-sm">
+                        <h4 className="font-medium text-foreground mb-1">Earning Potential</h4>
+                        <p className="text-muted-foreground">
+                          Report waste collections to earn points and money. Quality segregation 
+                          and accurate reporting leads to bonus rewards and tier upgrades!
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </CardContent>
             </Card>
           </TabsContent>
