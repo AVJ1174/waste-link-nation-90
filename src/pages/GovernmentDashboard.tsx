@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import VendorMap from '@/components/VendorMap';
 import CitizenLeafletMap from '@/components/CitizenLeafletMap';
 import { mockVendors, mockCitizenReports, mockMissedCalls } from '@/data/demoData';
-const recycLinkLogo = '/lovable-uploads/dc2b04ac-f72d-4240-ac0f-f14cd82f5f51.png';
+const recycLinkLogo = '/lovable-uploads/1dd08f06-2005-4008-a9b6-5a13326e7a8f.png';
 
 const GovernmentDashboard = () => {
   const [activeView, setActiveView] = useState('overview');
